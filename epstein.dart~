@@ -1,0 +1,11 @@
+import 'dart:io';
+
+void main(List<String> args) {
+  stdout.write('Please enter number: ');
+
+  var text = stdin.readLineSync();
+
+  int massa = int.parse(text!), c = 300000000, e = (massa) * c * c;
+
+  print(e);
+}
