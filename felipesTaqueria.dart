@@ -1,12 +1,7 @@
 import 'dart:io';
 void main(List<String> args) {
   double total = 0;
-  while(true){
-    stdout.write("Input: ");
-
-  String meal = stdin.readLineSync() ?? "";
-
-  Map<String,double> menu ={
+   Map<String,double> menu ={
     "Baja Taco": 4.25,
     "Burrito": 7.50,
     "Bowl": 8.50,
@@ -17,8 +12,23 @@ void main(List<String> args) {
     "Taco": 3.00,
     "Tortilla Salad": 8.00
   };
+
+  Map<String,double> toLowercase = {};
+
   menu.forEach((key, value) {
-    if(key == meal){
+    toLowercase[key.toLowerCase()] = value;
+  });
+  
+  while(true){
+    stdout.write("Input: ");
+
+  String meal = stdin.readLineSync() ?? "";
+
+  String userPrompt = meal.toLowerCase();
+
+ 
+  toLowercase.forEach((key, value) {
+    if(key == userPrompt){
       print("Meal cost\$${value}");
       total+=value;
       print("Total cost \$${total}");
