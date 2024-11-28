@@ -1,9 +1,10 @@
 import 'dart:io';
-
 void main(List<String> args) {
-  stdout.write("Input: ");
+  double total = 0;
+  while(true){
+    stdout.write("Input: ");
 
-  String? meal = stdin.readLineSync();
+  String meal = stdin.readLineSync() ?? "";
 
   Map<String,double> menu ={
     "Baja Taco": 4.25,
@@ -16,10 +17,13 @@ void main(List<String> args) {
     "Taco": 3.00,
     "Tortilla Salad": 8.00
   };
-
   menu.forEach((key, value) {
     if(key == meal){
-      print("\$${value}");
+      print("Meal cost\$${value}");
+      total+=value;
+      print("Total cost \$${total}");
     }
    });
+  }
+  
 }
